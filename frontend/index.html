@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Voice Field Register · Team Cookies</title>
+<meta name="theme-color" content="#12263A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>Voice Field Register</h1>
+    <p class="sub">Speak the visit. Check it. Save it. · Team Cookies</p>
+  </div>
+  <div class="top-right">
+    <label class="lang"><span class="sr">Language</span>
+      <select id="lang"><option value="hi">हिन्दी</option><option value="en">English</option></select>
+    </label>
+    <span id="conn" class="pill off" role="status">Connecting…</span>
+  </div>
+</header>
+
+<div id="mockBanner" class="banner" hidden>
+  Demo mode: speech is simulated. Each tap of the microphone plays the next line of a demo script.
+  Synthetic beneficiaries only (PAT001–PAT005).
+</div>
+<div id="errorBar" class="banner err" role="alert" hidden>
+  <span id="errorText"></span>
+  <button id="retryBtn" type="button" class="small">Retry</button>
+</div>
+
+<main>
+  <section class="talk" aria-label="Voice input">
+    <button id="mic" class="mic" type="button" aria-pressed="false" disabled>
+      <span class="ring" aria-hidden="true"></span>
+      <span id="micLabel">Tap to speak</span>
+    </button>
+    <p id="status" class="status" aria-live="polite">Connecting to the server…</p>
+  </section>
+
+  <section class="card" aria-label="Live transcript">
+    <h2>What was heard</h2>
+    <p id="transcript" class="transcript" aria-live="polite">Nothing yet.</p>
+  </section>
+
+  <section class="card" id="replyCard" aria-label="Assistant reply" hidden>
+    <h2>Reply</h2>
+    <p id="reply" aria-live="polite"></p>
+  </section>
+
+  <section id="danger" class="danger" role="alert" hidden>
+    <h2>Danger sign reported</h2>
+    <p id="dangerRef"></p>
+    <ul id="dangerList"></ul>
+    <p class="fine" id="dangerNote"></p>
+  </section>
+
+  <section id="candidates" class="card" hidden aria-label="Matching beneficiaries">
+    <h2>Which one? Say the ID</h2>
+    <ul id="candList" class="cands"></ul>
+  </section>
+
+  <section class="card" aria-label="Visit record">
+    <h2>Visit record</h2>
+    <dl class="form">
+      <dt>Beneficiary</dt><dd id="f_ben" class="empty">Missing</dd>
+      <dt>Visit type</dt><dd id="f_vt" class="empty">Missing</dd>
+      <dt>Problems</dt><dd id="f_con" class="empty">Missing</dd>
+      <dt>Follow-up</dt><dd id="f_fu">Not set</dd>
+    </dl>
+    <div id="confirmRow" class="confirm" hidden>
+      <button id="yesBtn" type="button" class="big yes">Yes, save</button>
+      <button id="noBtn" type="button" class="big no">No</button>
+    </div>
+    <p id="savedMsg" class="saved" aria-live="polite" hidden></p>
+  </section>
+
+  <section class="card" id="fuCard" aria-label="Follow-up list" hidden>
+    <h2>Follow-up list</h2>
+    <ul id="fuList"></ul>
+  </section>
+
+  <details class="card" id="typed">
+    <summary>Type instead (backup when the microphone or speech service is unavailable)</summary>
+    <div class="typed-row">
+      <label class="sr" for="typedText">Typed message</label>
+      <input id="typedText" type="text" autocomplete="off" placeholder="Today I visited Sunita…">
+      <button id="typedSend" type="button" class="small">Send</button>
+    </div>
+  </details>
+</main>
+
+<footer>
+  <p>Draft assistant only. It never diagnoses or advises treatment. Needs an internet connection to process speech;
+  nothing is processed offline. Danger-sign rules are <strong>pending medical verification</strong>.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

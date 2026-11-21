@@ -1,0 +1,21 @@
+{
+  "_note": "Synthetic code-mixed / noisy TRANSCRIPT fixtures (text, not audio). Names are from the synthetic register.",
+  "cases": [
+    {"id": "hinglish_full", "text": "aaj main PAT001 ke ghar gayi thi pregnancy checkup ke liye koi problem nahi 7 din baad dobara",
+     "expect": {"beneficiary_id": "PAT001", "visit_type": "anc", "concerns": [], "follow_up_days": 7, "danger": []}},
+    {"id": "english_name_unique", "text": "uh visited Sunita today ANC visit no problem",
+     "expect": {"beneficiary_id": "PAT003", "visit_type": "anc", "concerns": [], "danger": []}},
+    {"id": "child_visit_missing_concerns", "text": "Meena ke ghar gayi thi bachche ka teeka lagwane",
+     "expect": {"beneficiary_id": "PAT004", "visit_type": "child", "concerns": null, "danger": []}},
+    {"id": "noisy_spoken_id_bleeding", "text": "today um pat zero zero two .. delivery ke baad checkup... bahut zyada khoon",
+     "expect": {"beneficiary_id": "PAT002", "visit_type": "pnc", "danger": ["heavy_bleeding"]}},
+    {"id": "devanagari", "text": "आज मैं सुनीता के घर गई थी, गर्भवती जाँच, कोई समस्या नहीं",
+     "expect": {"beneficiary_id": "PAT003", "visit_type": "anc", "concerns": [], "danger": []}},
+    {"id": "duplicate_name_no_guess", "text": "Today I visited Bharath, pregnancy checkup, no problem",
+     "expect": {"beneficiary_id": null, "needs_id": true, "danger": []}},
+    {"id": "negated_danger", "text": "Ramesh child checkup, no bleeding",
+     "expect": {"beneficiary_id": "PAT005", "visit_type": "child", "danger": []}},
+    {"id": "persisting_bleeding_not_negated", "text": "Meena pregnancy checkup khoon nahi ruk raha bleeding",
+     "expect": {"beneficiary_id": "PAT004", "visit_type": "anc", "danger": ["heavy_bleeding"]}}
+  ]
+}

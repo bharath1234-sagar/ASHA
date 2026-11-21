@@ -1,0 +1,10 @@
+{
+  "_note": "SYNTHETIC DEMO DATA ONLY. These are invented records, not a real government or patient register.",
+  "beneficiaries": [
+    {"id": "PAT001", "name": "Bharath", "aliases": ["bharath", "bharat", "भरत"], "village": "Demo Village A", "synthetic": true},
+    {"id": "PAT002", "name": "Bharath", "aliases": ["bharath", "bharat", "भरत"], "village": "Demo Village B", "synthetic": true},
+    {"id": "PAT003", "name": "Sunita", "aliases": ["sunita", "सुनीता"], "village": "Demo Village A", "synthetic": true},
+    {"id": "PAT004", "name": "Meena", "aliases": ["meena", "मीना"], "village": "Demo Village C", "synthetic": true},
+    {"id": "PAT005", "name": "Ramesh", "aliases": ["ramesh", "रमेश"], "village": "Demo Village B", "synthetic": true}
+  ]
+}

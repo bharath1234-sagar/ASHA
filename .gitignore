@@ -1,0 +1,29 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/*.db
+data/*.db-*
+*.zip
+
+# Local secrets and environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local databases and backups
+data/
+backup-before-gnani/
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+
+# Local logs
+*.log
